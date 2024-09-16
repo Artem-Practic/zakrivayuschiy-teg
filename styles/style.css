@@ -17,4 +17,310 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font-variable, "sans-serif");
+  font-variation-settings: "wght" var(--weight-card-content);
+  color: var(--color-accent);
+  background-color: var(--color-fon);
+  background-image: var(--bg-image);
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: 4px;
+}
+
+.section {
+  background-color: var(--color-fon);
+  min-width: 375px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding-top: calc(120px + (100vw - 375px) * (120 - 136) / (375 - 1440));
+  padding-bottom: 25px;
+  border: 2px solid var(--color-accent);
+  font-family: var(--accent-font, "fantasy");
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.header__logo {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  display: block;
+  cursor: default;
+}
+
+.header__description {
+  margin-top: 20px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.header__theme-menu {
+  margin-top: 25px;
+}
+
+.theme-menu__list {
+  margin-left: 24px;
+}
+
+.theme-menu__button {
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  position: relative;
+  cursor: pointer;
+}
+
+.theme-menu__item:not(:last-child) > .theme-menu__button {
+  margin-bottom: 9px;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  display: inline-block;
+  position: absolute;
+  left: -22px;
+  animation: moving-arrow 0.5s ease-in-out infinite alternate;
+}
+
+.theme-menu__button:hover {
+  animation: button-hover-disabled 0.3s ease forwards;
+}
+
+.theme-menu__button[disabled] {
+  animation: button-hover-disabled 0.3s linear forwards running;
+  pointer-events: none;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  animation: button-hover-disabled 0.3s ease forwards;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  margin-top: 0px;
+  background-color: currentColor;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+  color: var(--color-accent-hover);
+}
+
+.card {
+  border: 2px solid var(--color-accent);
+}
+
+.card__title {
+  font-variation-settings: "wght" var(--weight-card-title);
+  font-size: 18px;
+  line-height: 21.78px;
+  padding: 4px 10px 4px;
+}
+
+.card__image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-top: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.card__content {
+  padding: 19px 25px 25px;
+  font-variation-settings: "wght" var(--weight-card-content);
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.card__content > p:not(:last-of-type) {
+  margin-bottom: 27px;
+}
+
+.card__bottom-wrap {
+  margin-top: 25px;
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  background-color: transparent;
+  transition: border 0.3s ease;
+  cursor: pointer;
+  height: 38px;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--color-accent);
+  border-radius: 0;
+}
+
+.like-icon {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  fill: var(--color-fon);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--color-accent);
+  transition: fill 0.3s linear;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--color-accent);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .core {
+  fill: var(--main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--main-body-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--main-body-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked {
+  animation: heart-scale 0.8s ease-in;
+  animation-delay: 0.1s;
+  animation-direction: alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity 0.8s ease-in;
+  animation-delay: 0.3s;
+  animation-direction: alternate;
+}
+
+.button-with-border {
+  background-color: transparent;
+  border: 2px solid var(--color-accent);
+  transition: color 1s ease, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
+}
+
+.button__text {
+  font-family: var(--accent-font, "fantasy");
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 12.6px;
+  position: relative;
+  z-index: 1;
+}
+
+.button-with-border:focus {
+  outline: none;
+}
+
+.button-with-border:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--color-accent);
+}
+
+.button-with-border::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 101%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  transition: 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.button-with-border:hover {
+  color: var(--color-fon);
+}
+
+.button-with-border:hover::before {
+  background-color: var(--color-accent);
+  transform: translateX(0);
+}
+
+.save {
+  display: flex;
+  justify-content: center;
+}
+
+.save__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 51px 32.5px 102px;
+  padding: 15px 20px;
+}
+
+.save__bottom svg {
+  width: calc(29px + (100vw - 375px) * (29 - 21) / (375 - 1440));
+  height: calc(28px + (100vw - 375px) * (28 - 21) / (375 - 1440));
+  position: relative;
+  z-index: 1;
+}
+
+.floppy {
+  width: calc(29px + (100vw - 375px) * (29 - 21) / (375 - 1440));
+  height: calc(28px + (100vw - 375px) * (28 - 21) / (375 - 1440));
 }
