@@ -189,56 +189,60 @@
 }
 
 .core {
-  fill: transparent;
+  fill: var(--color-fon);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .core {
+  fill: var(--color-accent);
   transition: fill 0.3s linear;
 }
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s 0.05s steps(2, start);
-}
-
-.like-icon:hover .core {
-  fill: var(--color-accent);
+  transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--color-accent);
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:active .core {
   fill: var(--main-body-color);
+  transition: fill 0.3s linear;
 }
 
 .like-icon:active .main-body {
   fill: var(--main-body-color);
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .core {
   fill: var(--main-body-color);
-  transition: fill 0.3s;
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--main-body-color);
-  transition: fill 0.3s 0.03s;
+  transition: fill 0.3s 0.03s linear;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--main-body-color);
-  transition: fill 0.3s 0.06s;
+  transition: fill 0.3s 0.06s linear;
 }
 
 .like-icon.is-liked {
-  animation: heart-scale 0.3s ease-in;
+  animation: heart-scale 0.8s ease-in;
   animation-delay: 0.1s;
-  animation-direction: normal;
+  animation-direction: alternate;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks-opacity 0.3s ease-in;
+  animation: sparks-opacity 0.8s ease-in;
   animation-delay: 0.3s;
-  animation-direction: normal;
+  animation-direction: alternate;
 }
 
 .button-with-border {
@@ -264,14 +268,15 @@
   z-index: 1;
 }
 
-.card__like-button:focus,
-.save__bottom:focus {
+.button-with-border:focus {
   outline: none;
+}
+
+.button-with-border:focus-visible {
   box-shadow: 2px 2px 0 0 var(--color-accent);
 }
 
-.card__like-button::before,
-.save__bottom::before {
+.button-with-border::before {
   content: "";
   display: block;
   width: 100%;
@@ -284,13 +289,11 @@
   transform: translateX(-100%);
 }
 
-.card__like-button:hover,
-.save__bottom:hover {
+.button-with-border:hover {
   color: var(--color-fon);
 }
 
-.card__like-button:hover::before,
-.save__bottom:hover::before {
+.button-with-border:hover::before {
   background-color: var(--color-accent);
   transform: translateX(0);
 }
@@ -306,7 +309,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 52px 32.5px 102px;
+  margin: 51px 32.5px 102px;
   padding: 15px 20px;
 }
 
