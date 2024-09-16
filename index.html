@@ -17,8 +17,8 @@
   </head>
   <body class="page">
     <header class="header section">
-      <h1 class="header__title">&lt;/HTML&gt;</h1>
-      <p class="header__description">закрывающий тег</p>
+      <a class="header__logo" title="Закрывающий тег">&lt;/HTML&gt;</a>
+      <h1 class="header__description">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
         <ul class="theme-menu__list">
@@ -52,9 +52,10 @@
             Фритрек и нулевой спринт: Подготовка к работе
           </h2>
           <img
+            alt="закрывающий тег"
+            title="Закрывающий тег"
             class="card__image"
             src="./images/post-image.png"
-            alt="изображение карточки"
           />
           <div class="card__content">
             <p>
@@ -64,8 +65,7 @@
             </p>
             <p>Место для ваших воспоминаний о начале обучения.</p>
             <div class="card__bottom-wrap">
-              <button class="card__icon-button">
-                <!-- <img class="like-icon" src="./svg/heart-in-paths.svg" alt="Иконка лайка"> -->
+              <button type="button" class="card__icon-button">
                 <svg
                   class="like-icon"
                   width="39"
@@ -98,22 +98,25 @@
                   />
                 </svg>
               </button>
-              <button class="card__like-button">
+              <button
+                type="button"
+                class="card__like-button button-with-border"
+              >
                 <span class="button__text">Like</span>
               </button>
             </div>
           </div>
         </article>
       </section>
+      <div class="section save">
+        <button type="button" class="save__bottom button-with-border">
+          <svg viewBox="0 0 29 28">
+            <use href="svg/floppy-svgomg.svg#floppy-1" class="floppy" />
+          </svg>
+          <span class="button__text">Сохранить на&nbsp;память</span>
+        </button>
+      </div>
     </main>
-    <footer class="footer section">
-      <button class="footer__bottom">
-        <svg viewBox="0 0 20 20">
-          <use href="svg/floppy.svg#floppy-1" />
-        </svg>
-        <span class="button__text">Сохранить на память</span>
-      </button>
-    </footer>
     <script src="./scripts/set-theme.js"></script>
     <script src="./scripts/like.js"></script>
   </body>
