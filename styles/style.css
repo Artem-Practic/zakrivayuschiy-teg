@@ -244,8 +244,7 @@
 .button-with-border {
   background-color: transparent;
   border: 2px solid var(--color-accent);
-  transition: box-shadow 0.3s;
-  transition: color 1s ease;
+  transition: color 1s ease, box-shadow 0.3s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
