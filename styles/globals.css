@@ -22,7 +22,8 @@ p,
 ul,
 ol,
 li,
-button {
+button,
+blockquote {
   margin: 0;
   padding: 0;
 }
